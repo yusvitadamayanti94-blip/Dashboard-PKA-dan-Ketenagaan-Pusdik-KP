@@ -1,1 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard TUBEL dan Ketenagaan</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<script>
+
+function loadDashboard(jenis){
+
+const frame = document.getElementById("dashboardFrame");
+
+if(jenis === "Data Pendidik dan Tenaga Kependidikan"){
+frame.src="https://app.powerbi.com/view?r=eyJrIjoiM2U2YTU3MmItZGVlZi00MGM1LTkzMTEtMTBiMzg0OGVhOWQwIiwidCI6IjI5ZTVlYTIwLWRhYWEtNDI5MS1hMmFlLTg3NGU2M2MxZjI5MiIsImMiOjEwfQ%3D%3D&pageName=22076eac94967b603209";
+}
+
+}
+
+</script>
+
+  
+<body>
+
+<script>
+  if (localStorage.getItem("isLogin") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+<!-- AREA SENSOR KIRI -->
+<div class="sidebar-trigger"></div>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <button id="toggleBtn" style="background:none;border:none;color:white;font-size:22px;cursor:pointer;margin-right:10px;">☰</button>
+      <img src="https://1.bp.blogspot.com/-x_XKQe2fBLo/YUSrZCN3xmI/AAAAAAAAG0U/f5yxOVigV6EcV7GLIR3QdBkbToqC8MbKgCLcBGAsYHQ/s1600/logo%2Bbaru%2Bkementrian%2Bkelautan%2Bdan%2Bperikanan%2BPNG%2B-%2Bkanalmu%2B.png" alt="Logo KKP">
+      <span>Dashboard</span>
+    </div>
+
+    <nav class="sidebar-menu">
+
+  <ul>
+
+    <li>
+      <a href="index.html">Beranda</a>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">Dashboard ▾</a>
+
+      <ul class="dropdown-menu">
+       <li><a href="#" onclick="loadDashboard('mandiri')">Dashboard Tubel Mandiri</a></li>
+       <li><a href="#" onclick="loadDashboard('dibiayai')">Dashboard Tubel Dibiayai</a></li>
+       <li><a href="#" onclick="loadDashboard('ketenagaan')">Dashboard Ketenagaan</a></li>
+      </ul>
+    </li>
+
+
+  </ul>
+
+</nav>
+  </aside>
+
+  <!-- KONTEN -->
+  <main class="content">
+    <iframe
+       id="dashboardFrame"
+       class="dashboard-frame"
+       src="https://app.powerbi.com/view?r=eyJrIjoiM2U2YTU3MmItZGVlZi00MGM1LTkzMTEtMTBiMzg0OGVhOWQwIiwidCI6IjI5ZTVlYTIwLWRhYWEtNDI5MS1hMmFlLTg3NGU2M2MxZjI5MiIsImMiOjEwfQ%3D%3D"
+       allowfullscreen>
+    </iframe>
+  </main>
+
+</div>
+
+<!-- SCRIPT AUTO HIDE -->
+<script>
+const sidebar = document.getElementById("sidebar");
+const toggleBtn = document.getElementById("toggleBtn");
+const trigger = document.querySelector(".sidebar-trigger");
+
+let isClosed = false;
+
+// Klik tombol ☰
+toggleBtn.addEventListener("click", function() {
+  sidebar.classList.toggle("closed");
+  isClosed = sidebar.classList.contains("closed");
+});
+
+// Hover kiri layar
+trigger.addEventListener("mouseenter", function() {
+  if (isClosed) {
+    sidebar.classList.remove("closed");
+  }
+});
+
+// Keluar dari sidebar
+sidebar.addEventListener("mouseleave", function() {
+  if (isClosed) {
+    sidebar.classList.add("closed");
+  }
+});
+</script>
+
+</body>
+</html>
