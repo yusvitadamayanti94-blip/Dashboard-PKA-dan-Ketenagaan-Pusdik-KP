@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard TUBEL dan Ketenagaan</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- =============================== -->
+<!-- CEK LOGIN -->
+<!-- =============================== -->
+<script>
+  if (localStorage.getItem("isLogin") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
+
+<!-- =============================== -->
+<!-- NAVBAR -->
+<!-- =============================== -->
+<header class="navbar">
+  <div class="logo">
+    <img src="https://1.bp.blogspot.com/-x_XKQe2fBLo/YUSrZCN3xmI/AAAAAAAAG0U/f5yxOVigV6EcV7GLIR3QdBkbToqC8MbKgCLcBGAsYHQ/s1600/logo%2Bbaru%2Bkementrian%2Bkelautan%2Bdan%2Bperikanan%2BPNG%2B-%2Bkanalmu%2B.png" alt="Logo KKP" />
+    <h2>Dashboard TUBEL dan Ketenagaan</h2>
+  </div>
+
+  <nav>
+    <li class="dropdown">
+    <a href="#">Dataset ▾</a>
+
+    <ul class="dropdown-menu">
+        <li>
+            <a href="4.%20Monitring%20Izin%20Belajar%202020-2025.xlsx" download>
+            Monitoring Izin Belajar
+            </a>
+        </li>
+
+        <li>
+            <a href="DashboardRekomendasi%20Tugas%20Belajar.xlsx" download>
+            Dashboard Rekomendasi
+            </a>
+        </li>
+
+        <li>
+            <a href="Database%20PTK_Dikti_TW%20III_2025_31102025.xlsx" download>
+            Database PTK Dikti
+            </a>
+        </li>
+    </ul>
+    </li>
+    
+    <a href="#" onclick="logout()">Logout</a>
+  </nav>
+</header>
+
+<!-- =============================== -->
+<!-- HERO SECTION -->
+<!-- =============================== -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">Selamat Datang di Dashboard TUBEL dan Ketenagaan</h1>
+    <p class="hero-subtitle">
+      Sistem informasi modern untuk pengelolaan data Tubel dan ketenagaan.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn-secondary" href="dashboard.html">Dashboard</a>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== -->
+<!-- FOOTER -->
+<!-- =============================== -->
+<footer class="footer">
+  <div class="footer-marquee">
+    <span>© 2026 Kementerian Kelautan dan Perikanan — Portal Tugas Belajar dan Ketenagaan PUSDIK</span>
+  </div>
+</footer>
+
+<!-- =============================== -->
+<!-- LOGOUT -->
+<!-- =============================== -->
+<script>
+  function logout() {
+    localStorage.removeItem("isLogin");
+    localStorage.removeItem("loginUser");
+    window.location.href = "login.html";
+  }
+</script>
+
+</body>
+</html>
 
